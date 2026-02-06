@@ -107,45 +107,38 @@
 
     /* Counter
     ---------------------------------------------------------- */
+    
     var counter = function () {
-        if ($(document.body).hasClass("counter-scroll")) {
-            function isInViewport(el) {
-                var rect = el.getBoundingClientRect();
-                return rect.top < window.innerHeight && rect.bottom > 0;
-            }
+        const counters = document.querySelectorAll('.number');
 
-            function startCount($el) {
-                if ($().countTo) {
-                    $el.find(".number").each(function () {
-                        var to = $(this).data("to"),
-                            speed = $(this).data("speed");
-                        $(this).countTo({
-                            to: to,
-                            speed: speed,
-                        });
-                    });
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-to'));
+                    const duration = parseInt(el.getAttribute('data-speed')) || 2000;
+
+                    let startTimestamp = null;
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+                        el.innerText = Math.floor(progress * target).toLocaleString();
+
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        } else {
+                            el.innerText = target.toLocaleString();
+                        }
+                    };
+
+                    window.requestAnimationFrame(step);
+                    observer.unobserve(el);
                 }
-            }
-
-            $(".counter").each(function () {
-                $(this).data("started", false);
             });
+        }, { threshold: 0.5 });
 
-            function checkAndStart() {
-                $(".counter").each(function () {
-                    var $this = $(this);
-                    var started = $this.data("started");
-
-                    if (!started && isInViewport(this)) {
-                        startCount($this);
-                        $this.data("started", true);
-                    }
-                });
-            }
-
-            checkAndStart();
-            $(window).on("scroll resize", checkAndStart);
-        }
+        counters.forEach(counter => observer.observe(counter));
     };
 
     /* Cursor Image Hover
