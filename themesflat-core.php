@@ -158,23 +158,23 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     }
 
     public function init_widgets() {
-         require_once( __DIR__ . '/widgets/widget-button.php' );
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFbutton_Widget() ); 
+        //  require_once( __DIR__ . '/widgets/widget-button.php' );
+        // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFbutton_Widget() ); 
 
         require_once( __DIR__ . '/widgets/widget-intro.php' );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFIntro_Widget() );
 
-        require_once( __DIR__ . '/widgets/widget-title-description.php' );
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTitleDescription_Widget() );
+        // require_once( __DIR__ . '/widgets/widget-title-description.php' );
+        // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTitleDescription_Widget() );
 
-        require_once( __DIR__ . '/widgets/widget-team.php' );
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTeam_Widget() );
+        require_once( __DIR__ . '/widgets/widget-education.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFEducation_Widget() );
 
-        require_once( __DIR__ . '/widgets/widget-list-image.php' );
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFListImage_Widget() );
+        require_once( __DIR__ . '/widgets/widget-about.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFAbout_Widget() );
 
-         require_once( __DIR__ . '/widgets/widget-text-list.php' );
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTextList_Widget() );
+        //  require_once( __DIR__ . '/widgets/widget-text-list.php' );
+        // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTextList_Widget() );
 
     }
 
