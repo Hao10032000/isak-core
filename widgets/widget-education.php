@@ -290,17 +290,74 @@ class TFEducation_Widget extends \Elementor\Widget_Base {
             ]
         );
 
+       // Date Style
         $this->add_control( 'heading_date', [ 'label' => esc_html__( 'Date', 'themesflat-core' ), 'type' => \Elementor\Controls_Manager::HEADING ] );
         $this->add_group_control( \Elementor\Group_Control_Typography::get_type(), [ 'name' => 'date_typo', 'selector' => '{{WRAPPER}} .timeline-date' ] );
         $this->add_control( 'date_color', [ 'label' => esc_html__( 'Date Color', 'themesflat-core' ), 'type' => \Elementor\Controls_Manager::COLOR, 'selectors' => [ '{{WRAPPER}} .timeline-date' => 'color: {{VALUE}};' ] ] );
 
-        $this->add_control( 'heading_role', [ 'label' => esc_html__( 'Role/Title', 'themesflat-core' ), 'type' => \Elementor\Controls_Manager::HEADING, 'separator' => 'before' ] );
+        // Role/Title Style
+        $this->add_control( 
+            'heading_role', 
+            [ 
+                'label' => esc_html__( 'Role/Title', 'themesflat-core' ), 
+                'type' => \Elementor\Controls_Manager::HEADING, 
+                'separator' => 'before' 
+            ] 
+        );
         $this->add_group_control( \Elementor\Group_Control_Typography::get_type(), [ 'name' => 'role_typo', 'selector' => '{{WRAPPER}} .timeline-role' ] );
         $this->add_control( 'role_color', [ 'label' => esc_html__( 'Role Color', 'themesflat-core' ), 'type' => \Elementor\Controls_Manager::COLOR, 'selectors' => [ '{{WRAPPER}} .timeline-role' => 'color: {{VALUE}};' ] ] );
+        
+        $this->add_responsive_control(
+            'role_padding',
+            [
+                'label'      => esc_html__( 'Role Padding', 'themesflat-core' ),
+                'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [ '{{WRAPPER}} .timeline-role' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
+            ]
+        );
 
-        $this->add_control( 'heading_desc', [ 'label' => esc_html__( 'Description', 'themesflat-core' ), 'type' => \Elementor\Controls_Manager::HEADING, 'separator' => 'before' ] );
+        $this->add_responsive_control(
+            'role_margin',
+            [
+                'label'      => esc_html__( 'Role Margin', 'themesflat-core' ),
+                'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [ '{{WRAPPER}} .timeline-role' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
+            ]
+        );
+
+        // Description Style
+        $this->add_control( 
+            'heading_desc', 
+            [ 
+                'label' => esc_html__( 'Description', 'themesflat-core' ), 
+                'type' => \Elementor\Controls_Manager::HEADING, 
+                'separator' => 'before' 
+            ] 
+        );
         $this->add_group_control( \Elementor\Group_Control_Typography::get_type(), [ 'name' => 'desc_typo', 'selector' => '{{WRAPPER}} .timeline-desc' ] );
         $this->add_control( 'desc_color', [ 'label' => esc_html__( 'Desc Color', 'themesflat-core' ), 'type' => \Elementor\Controls_Manager::COLOR, 'selectors' => [ '{{WRAPPER}} .timeline-desc' => 'color: {{VALUE}};' ] ] );
+
+        $this->add_responsive_control(
+            'desc_padding',
+            [
+                'label'      => esc_html__( 'Description Padding', 'themesflat-core' ),
+                'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [ '{{WRAPPER}} .timeline-desc' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'desc_margin',
+            [
+                'label'      => esc_html__( 'Description Margin', 'themesflat-core' ),
+                'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [ '{{WRAPPER}} .timeline-desc' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
+            ]
+        );
 
         $this->end_controls_section();
     }
