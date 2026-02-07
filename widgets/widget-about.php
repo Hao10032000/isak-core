@@ -17,15 +17,15 @@ class TFAbout_Widget extends \Elementor\Widget_Base {
 		return [ 'themesflat_addons' ];
 	}
 
-	public function get_style_depends() { return [ 'styles' ]; }
-    public function get_script_depends() {
-        return [ 
-            'change-text', 'gsap', 
-            'ScrollTrigger', 'ScrollToPlugin', 'ScrollSmooth', 
-            'ScrollSmoother', 'SplitText', 'gsapAnimation', 
-            'main'
-        ];
-    }
+	// public function get_style_depends() { return [ 'styles' ]; }
+    // public function get_script_depends() {
+    //     return [ 
+    //         'change-text', 'gsap', 
+    //         'ScrollTrigger', 'ScrollToPlugin', 'ScrollSmooth', 
+    //         'ScrollSmoother', 'SplitText', 'gsapAnimation',
+    //         'main'
+    //     ];
+    // }
 
 	// ============================
 	// CONTROLS

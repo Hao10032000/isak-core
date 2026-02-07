@@ -164,8 +164,8 @@ final class ThemesFlat_Addon_For_Elementor_proty {
         require_once( __DIR__ . '/widgets/widget-intro.php' );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFIntro_Widget() );
 
-        // require_once( __DIR__ . '/widgets/widget-title-description.php' );
-        // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTitleDescription_Widget() );
+        require_once( __DIR__ . '/widgets/widget-tech-stack.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTech_Stack_Widget() );
 
         require_once( __DIR__ . '/widgets/widget-education.php' );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFEducation_Widget() );
@@ -173,8 +173,8 @@ final class ThemesFlat_Addon_For_Elementor_proty {
         require_once( __DIR__ . '/widgets/widget-about.php' );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFAbout_Widget() );
 
-        //  require_once( __DIR__ . '/widgets/widget-text-list.php' );
-        // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTextList_Widget() );
+         require_once( __DIR__ . '/widgets/widget-service.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFService_Widget() );
 
     }
 
@@ -183,7 +183,7 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     public function widget_styles() {
 
         //widget
-         wp_register_style( 'styles', plugins_url( '/assets/css/styles.css', __FILE__ ) );
+        //  wp_register_style( 'styles', plugins_url( '/assets/css/styles.css', __FILE__ ) );
           wp_register_style( 'animate', plugins_url( '/assets/css/animate.css', __FILE__ ) );
            wp_register_style( 'bootstrap', plugins_url( '/assets/css/bootstrap.min.css', __FILE__ ) );
             wp_register_style( 'odometer', plugins_url( '/assets/css/odometer.min.css', __FILE__ ) );
@@ -197,32 +197,18 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     }
 
    public function widget_scripts() {
-    /**
-     * 1. HỆ THỐNG GSAP & PLUGINS
-     * Thứ tự: Core -> Plugins -> Custom Code
-     */
-    // Đăng ký GSAP Core
+ 
     wp_register_script( 'gsap', plugins_url( '/assets/js/gsap.min.js', __FILE__ ), [], '3.12.2', true );
-    
-    // Đăng ký ScrollTrigger (BẮT BUỘC vì lỗi Console của bạn báo thiếu cái này)
-    // Lưu ý: Đảm bảo bạn đã có file ScrollTrigger.min.js trong thư mục /assets/js/
     wp_register_script( 'ScrollTrigger', plugins_url( '/assets/js/ScrollTrigger.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
     
     wp_register_script( 'ScrollToPlugin', plugins_url( '/assets/js/ScrollToPlugin.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
     wp_register_script( 'ScrollSmoother', plugins_url( '/assets/js/ScrollSmoother.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
     wp_register_script( 'ScrollSmooth', plugins_url( '/assets/js/ScrollSmooth.js', __FILE__ ), [ 'gsap' ], null, true );
 
-    /**
-     * 2. SCRIPTS HIỆU ỨNG TÙY CHỈNH
-     * Phải phụ thuộc vào cả jQuery, GSAP và ScrollTrigger
-     */
     wp_register_script( 'gsapAnimation', plugins_url( '/assets/js/gsapAnimation.js', __FILE__ ), [ 'jquery', 'gsap', 'ScrollTrigger' ], null, true );
     wp_register_script( 'change-text', plugins_url( '/assets/js/animation-change-text.js', __FILE__ ), [ 'jquery', 'gsap' ], null, true );
      wp_register_script( 'SplitText', plugins_url( '/assets/js/SplitText.min.js', __FILE__ ), [ 'jquery', 'gsap' ], null, true );
 
-    /**
-     * 3. THƯ VIỆN BÊN THỨ BA (THIRD-PARTY)
-     */
     wp_register_script( 'bootstrap', plugins_url( '/assets/js/bootstrap.min.js', __FILE__ ), [ 'jquery' ], '5.0', true );
     wp_register_script( 'countto', plugins_url( '/assets/js/countto.js', __FILE__ ), [ 'jquery' ], null, true );
     wp_register_script( 'infinityslide', plugins_url( '/assets/js/infinityslide.js', __FILE__ ), [ 'jquery' ], null, true );
@@ -238,14 +224,10 @@ final class ThemesFlat_Addon_For_Elementor_proty {
      * 4. WIDGET SPECIFIC & MAIN SCRIPTS
      */
     wp_register_script( 'tf-counter', plugins_url( '/assets/js/counter/tf-counter.js', __FILE__ ), [ 'jquery', 'odometer' ], null, true ); 
-    wp_register_script( 'tf-image-list', plugins_url( '/assets/js/image-list/image-list.js', __FILE__ ), [ 'jquery' ], null, true );
+    wp_register_script( 'tf-about', plugins_url( '/assets/js/about/tf-about.js', __FILE__ ), [ 'jquery' ], null, true );
     
-    // Main script phụ thuộc vào bootstrap và các hiệu ứng cơ bản
     wp_register_script( 'main', plugins_url( '/assets/js/main.js', __FILE__ ), [ 'jquery', 'bootstrap', 'gsapAnimation' ], null, true );
 
-    /**
-     * 5. JOB FILTER & AJAX
-     */
     wp_register_script( 'job-filter-ajax', plugins_url( '/assets/js/job/tf-job.js', __FILE__ ), [ 'jquery' ], null, true );
     wp_register_script( 'job-form-ajax', plugins_url( '/assets/js/job/tf-job-form.js', __FILE__ ), [ 'jquery' ], null, true );
     
