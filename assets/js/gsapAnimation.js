@@ -497,7 +497,6 @@ gsap.registerPlugin(ScrollTrigger);
             }, 300);
         });
     };
-    
     var runAnimations = () => {
         /*-- Scroll Text --*/
         animation_text();

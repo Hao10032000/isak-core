@@ -158,8 +158,8 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     }
 
     public function init_widgets() {
-        //  require_once( __DIR__ . '/widgets/widget-button.php' );
-        // \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFbutton_Widget() ); 
+         require_once( __DIR__ . '/widgets/widget-testimonials.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFTestimonials_Widget() ); 
 
         require_once( __DIR__ . '/widgets/widget-intro.php' );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFIntro_Widget() );
@@ -176,14 +176,22 @@ final class ThemesFlat_Addon_For_Elementor_proty {
          require_once( __DIR__ . '/widgets/widget-service.php' );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFService_Widget() );
 
+          require_once( __DIR__ . '/widgets/widget-form-contact.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFForm_Contact_Widget() );
+
+          require_once( __DIR__ . '/widgets/widget-brand.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFBrand_Widget() );
+
+
     }
 
-    public function init_controls() {}    
+    public function init_controls() {}  
+
 
     public function widget_styles() {
 
         //widget
-        //  wp_register_style( 'styles', plugins_url( '/assets/css/styles.css', __FILE__ ) );
+         wp_register_style( 'icon-isak', THEMESFLAT_LINK . 'css/icon-isak.css' );
           wp_register_style( 'animate', plugins_url( '/assets/css/animate.css', __FILE__ ) );
            wp_register_style( 'bootstrap', plugins_url( '/assets/css/bootstrap.min.css', __FILE__ ) );
             wp_register_style( 'odometer', plugins_url( '/assets/css/odometer.min.css', __FILE__ ) );
@@ -217,7 +225,7 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     wp_register_script( 'light-gallery', plugins_url( '/assets/js/light-gallery.js', __FILE__ ), [ 'jquery' ], null, true );
     wp_register_script( 'odometer', plugins_url( '/assets/js/odometer.min.js', __FILE__ ), [ 'jquery' ], null, true );
     wp_register_script( 'waypoint', plugins_url( '/assets/js/waypoint.js', __FILE__ ), [ 'jquery' ], null, true );
-    wp_register_script( 'owl-carousel', plugins_url( '/assets/js/carousel.js', __FILE__ ), [ 'jquery' ], null, true );
+    wp_register_script( 'tf-carousel', plugins_url( '/assets/js/carousel.js', __FILE__ ), [ 'jquery' ], null, true );
      wp_register_script( 'swiper-bundle', plugins_url( '/assets/js/swiper-bundle.min.js', __FILE__ ), [ 'jquery' ], null, true );
 
     /**
@@ -225,6 +233,7 @@ final class ThemesFlat_Addon_For_Elementor_proty {
      */
     wp_register_script( 'tf-counter', plugins_url( '/assets/js/counter/tf-counter.js', __FILE__ ), [ 'jquery', 'odometer' ], null, true ); 
     wp_register_script( 'tf-about', plugins_url( '/assets/js/about/tf-about.js', __FILE__ ), [ 'jquery' ], null, true );
+     wp_register_script( 'tf-testimonial', plugins_url( '/assets/js/testimonial/tf-testimonial.js', __FILE__ ), [ 'jquery' ], null, true );
     
     wp_register_script( 'main', plugins_url( '/assets/js/main.js', __FILE__ ), [ 'jquery', 'bootstrap', 'gsapAnimation' ], null, true );
 
