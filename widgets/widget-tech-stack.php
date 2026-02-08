@@ -16,6 +16,9 @@ class TFTech_Stack_Widget extends \Elementor\Widget_Base {
     public function get_categories() {
         return [ 'themesflat_addons' ];
     }
+     public function get_script_depends() {
+        return [ 'tf-brand'];
+    }
 
 	protected function register_controls() {
 

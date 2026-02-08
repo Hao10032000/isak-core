@@ -244,27 +244,31 @@
     /* Text Rotate
     ---------------------------------------------------------- */
     var textRotate = function () {
-        if ($(".wg-curve-text").length > 0) {
-            if ($(".text-rotate").length > 0) {
-                const text = "award winning agency - since 2022 -";
+    if ($(".wg-curve-text").length > 0) {
+        if ($(".text-rotate").length > 0) {
+            
+            $(".text-rotate .text").each(function () {
+                const $circularText = $(this);
+                
+                // LẤY TEXT TỪ DATA ATTRIBUTE (Nếu không có thì dùng text mặc định)
+                const text = $circularText.data("text") || "award winning agency - since 2022 -";
+                
                 const chars = text.split("");
                 const degree = 360 / chars.length;
 
-                $(".text-rotate .text").each(function () {
-                    const $circularText = $(this);
-                    $circularText.empty();
-                    chars.forEach((char, i) => {
-                        const $span = $("<span></span>")
-                            .text(char)
-                            .css({
-                                transform: `rotate(${i * degree}deg)`,
-                            });
-                        $circularText.append($span);
-                    });
+                $circularText.empty();
+                chars.forEach((char, i) => {
+                    const $span = $("<span></span>")
+                        .text(char)
+                        .css({
+                            transform: `rotate(${i * degree}deg)`,
+                        });
+                    $circularText.append($span);
                 });
-            }
+            });
         }
-    };
+    }
+};
 
     /* Active Class
     ---------------------------------------------------------- */
