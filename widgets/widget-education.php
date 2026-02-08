@@ -16,6 +16,7 @@ class TFEducation_Widget extends \Elementor\Widget_Base {
 	public function get_categories() {
 		return [ 'themesflat_addons' ];
 	}
+    
 
 	protected function register_controls() {
 

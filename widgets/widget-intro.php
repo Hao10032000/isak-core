@@ -8,12 +8,7 @@ class TFIntro_Widget extends \Elementor\Widget_Base {
     
     public function get_style_depends() { return [ 'styles' ]; }
     public function get_script_depends() {
-        return [ 
-            'infinityslide', 'countto', 'change-text', 'gsap', 
-            'ScrollTrigger', 'ScrollToPlugin', 'ScrollSmooth', 
-            'ScrollSmoother', 'SplitText', 'gsapAnimation', 
-            'main', 'swiper-bundle'
-        ];
+        return [ 'tf-brand'];
     }
 
     protected function register_controls() {
