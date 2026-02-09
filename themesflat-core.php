@@ -231,6 +231,7 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     /**
      * 4. WIDGET SPECIFIC & MAIN SCRIPTS
      */
+     wp_register_script( 'tf-split-text', plugins_url( '/assets/js/split-text/tf-split-text.js', __FILE__ ), [ 'jquery', 'odometer' ], null, true ); 
     wp_register_script( 'tf-counter', plugins_url( '/assets/js/counter/tf-counter.js', __FILE__ ), [ 'jquery', 'odometer' ], null, true ); 
     wp_register_script( 'tf-about', plugins_url( '/assets/js/about/tf-about.js', __FILE__ ), [ 'jquery' ], null, true );
      wp_register_script( 'tf-testimonial', plugins_url( '/assets/js/testimonial/tf-testimonial.js', __FILE__ ), [ 'jquery' ], null, true );

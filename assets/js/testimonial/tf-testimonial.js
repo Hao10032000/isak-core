@@ -30,7 +30,7 @@
 
     $(window).on("elementor/frontend/init", function () {
         elementorFrontend.hooks.addAction(
-            "frontend/element_ready/tf-testimonials.default",
+            "frontend/element_ready/tf-testimonial.default",
             tf_testimonials
         );
     });

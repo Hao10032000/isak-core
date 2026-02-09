@@ -21,9 +21,9 @@ class TFTestimonials_Widget extends Widget_Base {
     public function get_categories() {
         return ['themesflat_addons'];
     }
-    //  public function get_script_depends() {
-    //     return ['tf-carousel','swiper-bundle'];
-    // }
+     public function get_script_depends() {
+        return ['tf-carousel'];
+    }
 
    protected function register_controls() {
 
@@ -524,7 +524,7 @@ $this->add_control(
 protected function render() {
     $settings = $this->get_settings_for_display();
     ?>
-    <div id="testimonial" class="section-testimonial flat-spacing">
+    <div class="section-testimonial flat-spacing">
         
         <div class="sect-tag text-caption fw-medium effectFade fadeUp no-div">
             <?php if ( ! empty( $settings['sub_title_icon']['value'] ) ) : ?>

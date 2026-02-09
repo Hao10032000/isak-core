@@ -1,16 +1,20 @@
 <?php 
 class TFBrand_Widget extends \Elementor\Widget_Base {
 
-    public function get_name() { return 'tf-brand'; }
+    public function get_name() { return 'tf-split-text'; }
     public function get_title() { return esc_html__( 'TF Brand', 'themesflat-core' ); }
     public function get_icon() { return 'eicon-banner'; }
     public function get_categories() { return [ 'themesflat_addons' ]; }
     
     public function get_style_depends() { return [ 'styles' ]; }
     public function get_script_depends() {
+      
         return [ 
-            'infinityslide', 
-            'main'
+            'gsap', 
+            'ScrollTrigger', 
+            'SplitText', 
+            'infinityslide',
+            'main' 
         ];
     }
 
@@ -99,9 +103,9 @@ class TFBrand_Widget extends \Elementor\Widget_Base {
 
     protected function render() {
         $settings = $this->get_settings_for_display();
+        // Thêm class .split-text và một hiệu ứng (ví dụ effect-fade) để JS bắt được
         ?>
-
-        <p class="intro-client letter-space--05 text-body-3">
+        <p class="intro-client split-text effect-fade letter-space--05 text-body-3">
             <?php if ( ! empty( $settings['custom_icon']['value'] ) ) : ?>
                 <span class="icon-wrap">
                     <?php \Elementor\Icons_Manager::render_icon( $settings['custom_icon'], [ 'aria-hidden' => 'true' ] ); ?>
@@ -113,9 +117,8 @@ class TFBrand_Widget extends \Elementor\Widget_Base {
         </p>
 
         <div class="infiniteSlide-brand">
-            <div class="infiniteSlide" data-clone="3">
+            <div class="infiniteSlide" data-clone="3" data-speed="50"> 
                 <?php 
-                // Render 3 lần để tạo hiệu ứng vòng lặp (vô tận) như cấu trúc HTML mẫu
                 for ($i = 0; $i < 3; $i++) : 
                     foreach ( $settings['brands'] as $item ) : 
                         $logo_url = !empty($item['brand_logo']['url']) ? $item['brand_logo']['url'] : '';
@@ -134,7 +137,6 @@ class TFBrand_Widget extends \Elementor\Widget_Base {
                 ?>
             </div>
         </div>
-
         <?php
     }
 }

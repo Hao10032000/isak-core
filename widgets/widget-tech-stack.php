@@ -17,7 +17,7 @@ class TFTech_Stack_Widget extends \Elementor\Widget_Base {
         return [ 'themesflat_addons' ];
     }
      public function get_script_depends() {
-        return [ 'tf-brand'];
+        return [ 'gsapAnimation'];
     }
 
 	protected function register_controls() {
