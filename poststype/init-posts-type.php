@@ -35,16 +35,6 @@ if ( ! class_exists( 'themesflat_custom_post_type' ) ) {
 
         }
 
-        function themesflat_taxonomy_work( $taxonomy_template ) {
-
-            global $post;
-
-            if ( $post->post_type == 'work' ) $taxonomy_template = THEMESFLAT_PATH . '/poststype/inc/taxonomy-work_category.php';
-
-            return $taxonomy_template;
-
-        }
-
         function themesflat_archive_work( $archive_template ) {
 
             global $post;

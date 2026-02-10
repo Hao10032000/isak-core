@@ -243,14 +243,6 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     
     wp_register_script( 'main', plugins_url( '/assets/js/main.js', __FILE__ ), [ 'jquery', 'bootstrap', 'gsapAnimation' ], null, true );
 
-    wp_register_script( 'job-filter-ajax', plugins_url( '/assets/js/job/tf-job.js', __FILE__ ), [ 'jquery' ], null, true );
-    wp_register_script( 'job-form-ajax', plugins_url( '/assets/js/job/tf-job-form.js', __FILE__ ), [ 'jquery' ], null, true );
-    
-    wp_localize_script( 'job-filter-ajax', 'jobAjax', [
-        'ajaxurl'  => admin_url( 'admin-ajax.php' ),
-        'action'   => defined('JOB_AJAX_ACTION') ? JOB_AJAX_ACTION : 'default_action', 
-        'security' => wp_create_nonce( 'job_filter_nonce' ),
-    ] );
 }
 
     public function admin_scripts() {

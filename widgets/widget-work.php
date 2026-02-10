@@ -167,6 +167,45 @@ class TFWork_Widget extends Widget_Base {
     $this->end_controls_section();
 
     /* ---------- STYLE: TITLE ---------- */
+
+     $this->start_controls_section(
+        'section_style_heading',
+        [
+            'label' => esc_html__('Heading Section', 'themesflat-core'),
+            'tab'   => Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    $this->add_control(
+        'heading_color',
+        [
+            'label' => esc_html__('Color', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .section-work .sect-tag' => 'color: {{VALUE}}',
+            ],
+        ]
+    );
+
+    $this->add_control(
+        'heading_bgcolor',
+        [
+            'label' => esc_html__('Background Color', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .section-work .sect-tag' => 'background: {{VALUE}}',
+            ],
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Typography::get_type(),
+        [
+            'name' => 'heading_typography',
+            'selector' => '{{WRAPPER}} .section-work .sect-tag',
+        ]
+    );
+    $this->end_controls_section();
     $this->start_controls_section(
         'section_style_title',
         [
@@ -223,6 +262,173 @@ class TFWork_Widget extends Widget_Base {
             'selector' => '{{WRAPPER}} .w-desc',
         ]
     );
+
+    $this->end_controls_section();
+    /* ---------- STYLE: Meta ---------- */
+    $this->start_controls_section(
+        'section_style_meta',
+        [
+            'label' => esc_html__('Meta', 'themesflat-core'),
+            'tab'   => Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    $this->add_control(
+        'meta_color',
+        [
+            'label' => esc_html__('Color Label', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .wg-work .w-highlight .text-body-3.text-white-56' => 'color: {{VALUE}}',
+            ],
+        ]
+    );
+
+     $this->add_group_control(
+        Group_Control_Typography::get_type(),
+        [
+            'name' => 'meta_typography',
+            'selector' => '{{WRAPPER}} .wg-work .w-highlight .text-body-3.text-white-56',
+        ]
+    );
+
+    $this->add_control(
+        'meta2_color',
+        [
+            'label' => esc_html__('Color Text', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .wg-work .w-highlight .text-body-1.text-white-72' => 'color: {{VALUE}}',
+            ],
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Typography::get_type(),
+        [
+            'name' => 'meta2_typography',
+            'selector' => '{{WRAPPER}} .wg-work .w-highlight .text-body-1.text-white-72',
+        ]
+    );
+
+   $this->end_controls_section();
+    /* ---------- STYLE: Tag ---------- */
+    $this->start_controls_section(
+        'section_style_tag',
+        [
+            'label' => esc_html__('Tag', 'themesflat-core'),
+            'tab'   => Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    $this->add_control(
+        'tag_color',
+        [
+            'label' => esc_html__('Color', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .wg-work .w-tag-list .tag ' => 'color: {{VALUE}}',
+            ],
+        ]
+    );
+
+     $this->add_control(
+        'tag_bgcolor',
+        [
+            'label' => esc_html__('Background Color', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .wg-work .w-tag-list .tag ' => 'background: {{VALUE}}',
+            ],
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Typography::get_type(),
+        [
+            'name' => 'tag_typography',
+            'selector' => '{{WRAPPER}} .wg-work .w-tag-list .tag ',
+        ]
+    );
+    $this->end_controls_section();
+    /* ---------- STYLE: Button ---------- */
+    $this->start_controls_section(
+        'section_style_button',
+        [
+            'label' => esc_html__('Button', 'themesflat-core'),
+            'tab'   => Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    $this->add_control(
+        'button_color',
+        [
+            'label' => esc_html__('Color', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .wg-work .tf-btn-action.style-white .ic-wrap,{{WRAPPER}}  .wg-work .tf-btn-action.style-white .text ' => 'color: {{VALUE}}',
+            ],
+        ]
+    );
+
+     $this->add_control(
+        'button_bgcolor',
+        [
+            'label' => esc_html__('Background Color', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .wg-work .tf-btn-action.style-white .ic-wrap,{{WRAPPER}}  .wg-work .tf-btn-action.style-white .text ' => 'background: {{VALUE}}',
+            ],
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Typography::get_type(),
+        [
+            'name' => 'button_typography',
+            'selector' => '{{WRAPPER}} .wg-work .tf-btn-action.style-white .ic-wrap,{{WRAPPER}}  .wg-work .tf-btn-action.style-white .text ',
+        ]
+    );
+    $this->end_controls_section();
+    /* ---------- STYLE: Pagination ---------- */
+    $this->start_controls_section(
+        'section_style_pagi',
+        [
+            'label' => esc_html__('Pagination', 'themesflat-core'),
+            'tab'   => Controls_Manager::TAB_STYLE,
+        ]
+    );
+
+    $this->add_control(
+        'pagi_color',
+        [
+            'label' => esc_html__('Color', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .text-white-40' => 'color: {{VALUE}}',
+            ],
+        ]
+    );
+
+     $this->add_control(
+        'pagi_bgcolor',
+        [
+            'label' => esc_html__('Color Active', 'themesflat-core'),
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .wg-work .text-white-72' => 'color: {{VALUE}}',
+            ],
+        ]
+    );
+
+    $this->add_group_control(
+        Group_Control_Typography::get_type(),
+        [
+            'name' => 'pagi_typography',
+            'selector' => '{{WRAPPER}} .text-white-40text-white-40',
+        ]
+    );
+
 
     $this->end_controls_section();
     }
@@ -317,13 +523,16 @@ class TFWork_Widget extends Widget_Base {
                                         <?php endif; ?>
                                     </div>
                                 <?php endif; ?>
-                                <?php if ( $settings['show_tags'] === 'yes' && $tags ) : ?>
+                                <?php if ( $settings['show_tags'] === 'yes' && $tags ) : 
+                                    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+                                    ?>
+                                    
                                     <div class="w-tag-list">
                                         <?php foreach ( $tags as $tag ) : ?>
                                             <div class="tag"><span><?php echo esc_html($tag->name); ?></span></div>
                                         <?php endforeach; ?>
                                     </div>
-                                <?php endif; ?>
+                                <?php } endif; ?>
                             </div>
                             <div class="content-bottom">
                                 <div class="br-line"></div>
