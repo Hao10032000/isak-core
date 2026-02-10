@@ -95,6 +95,22 @@ add_action('admin_enqueue_scripts', function() {
     wp_enqueue_media();
 });
 
+function tf_get_taxonomy_terms( $taxonomy ) {
+    $terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false,
+    ]);
+
+    $options = [];
+    if ( ! is_wp_error( $terms ) ) {
+        foreach ( $terms as $term ) {
+            $options[$term->slug] = $term->name;
+        }
+    }
+    return $options;
+}
+
+
 
 
 

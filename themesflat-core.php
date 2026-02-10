@@ -182,6 +182,9 @@ final class ThemesFlat_Addon_For_Elementor_proty {
           require_once( __DIR__ . '/widgets/widget-brand.php' );
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFBrand_Widget() );
 
+        require_once( __DIR__ . '/widgets/widget-work.php' );
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new \TFWork_Widget() ); 
+
 
     }
 
@@ -200,6 +203,8 @@ final class ThemesFlat_Addon_For_Elementor_proty {
         wp_register_style( 'tf-image-box', plugins_url( '/assets/css/image-box/tf-image-box.css', __FILE__ ) );
         wp_register_style( 'tf-project', plugins_url( '/assets/css/project/project.css', __FILE__ ) );
         wp_register_style( 'owl-carousel', plugins_url( '/assets/css/owl.carousel.min.css', __FILE__ ) );
+        wp_register_style( 'tf-work', plugins_url( '/assets/css/work/work.css', __FILE__ ) );
+
 
 
     }
@@ -238,14 +243,6 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     
     wp_register_script( 'main', plugins_url( '/assets/js/main.js', __FILE__ ), [ 'jquery', 'bootstrap', 'gsapAnimation' ], null, true );
 
-    wp_register_script( 'job-filter-ajax', plugins_url( '/assets/js/job/tf-job.js', __FILE__ ), [ 'jquery' ], null, true );
-    wp_register_script( 'job-form-ajax', plugins_url( '/assets/js/job/tf-job-form.js', __FILE__ ), [ 'jquery' ], null, true );
-    
-    wp_localize_script( 'job-filter-ajax', 'jobAjax', [
-        'ajaxurl'  => admin_url( 'admin-ajax.php' ),
-        'action'   => defined('JOB_AJAX_ACTION') ? JOB_AJAX_ACTION : 'default_action', 
-        'security' => wp_create_nonce( 'job_filter_nonce' ),
-    ] );
 }
 
     public function admin_scripts() {
