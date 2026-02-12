@@ -194,34 +194,20 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     public function widget_styles() {
 
         //widget
-         wp_register_style( 'icon-isak', THEMESFLAT_LINK . 'css/icon-isak.css' );
-          wp_register_style( 'animate', plugins_url( '/assets/css/animate.css', __FILE__ ) );
-           wp_register_style( 'bootstrap', plugins_url( '/assets/css/bootstrap.min.css', __FILE__ ) );
-            wp_register_style( 'odometer', plugins_url( '/assets/css/odometer.min.css', __FILE__ ) );
-             wp_register_style( 'swiper-bundle', plugins_url( '/assets/css/swiper-bundle.min.css', __FILE__ ) );
+        wp_register_style( 'icon-isak', THEMESFLAT_LINK . 'css/icon-isak.css' );
+        wp_register_style( 'animate', plugins_url( '/assets/css/animate.css', __FILE__ ) );
+        wp_register_style( 'bootstrap', plugins_url( '/assets/css/bootstrap.min.css', __FILE__ ) );
+        wp_register_style( 'odometer', plugins_url( '/assets/css/odometer.min.css', __FILE__ ) );
+        wp_register_style( 'swiper-bundle', plugins_url( '/assets/css/swiper-bundle.min.css', __FILE__ ) );
         wp_register_style( 'tf-button', plugins_url( '/assets/css/button/tf-button.css', __FILE__ ) );
         wp_register_style( 'tf-image-box', plugins_url( '/assets/css/image-box/tf-image-box.css', __FILE__ ) );
         wp_register_style( 'tf-project', plugins_url( '/assets/css/project/project.css', __FILE__ ) );
         wp_register_style( 'owl-carousel', plugins_url( '/assets/css/owl.carousel.min.css', __FILE__ ) );
         wp_register_style( 'tf-work', plugins_url( '/assets/css/work/work.css', __FILE__ ) );
 
-
-
     }
 
    public function widget_scripts() {
- 
-    wp_register_script( 'gsap', plugins_url( '/assets/js/gsap.min.js', __FILE__ ), [], '3.12.2', true );
-    wp_register_script( 'ScrollTrigger', plugins_url( '/assets/js/ScrollTrigger.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
-    
-    wp_register_script( 'ScrollToPlugin', plugins_url( '/assets/js/ScrollToPlugin.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
-    wp_register_script( 'ScrollSmoother', plugins_url( '/assets/js/ScrollSmoother.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
-    wp_register_script( 'ScrollSmooth', plugins_url( '/assets/js/ScrollSmooth.js', __FILE__ ), [ 'gsap' ], null, true );
-
-    wp_register_script( 'gsapAnimation', plugins_url( '/assets/js/gsapAnimation.js', __FILE__ ), [ 'jquery', 'gsap', 'ScrollTrigger' ], null, true );
-    wp_register_script( 'change-text', plugins_url( '/assets/js/animation-change-text.js', __FILE__ ), [ 'jquery', 'gsap' ], null, true );
-     wp_register_script( 'SplitText', plugins_url( '/assets/js/SplitText.min.js', __FILE__ ), [ 'jquery', 'gsap' ], null, true );
-
     wp_register_script( 'bootstrap', plugins_url( '/assets/js/bootstrap.min.js', __FILE__ ), [ 'jquery' ], '5.0', true );
     wp_register_script( 'countto', plugins_url( '/assets/js/countto.js', __FILE__ ), [ 'jquery' ], null, true );
     wp_register_script( 'infinityslide', plugins_url( '/assets/js/infinityslide.js', __FILE__ ), [ 'jquery' ], null, true );
@@ -230,8 +216,19 @@ final class ThemesFlat_Addon_For_Elementor_proty {
     wp_register_script( 'light-gallery', plugins_url( '/assets/js/light-gallery.js', __FILE__ ), [ 'jquery' ], null, true );
     wp_register_script( 'odometer', plugins_url( '/assets/js/odometer.min.js', __FILE__ ), [ 'jquery' ], null, true );
     wp_register_script( 'waypoint', plugins_url( '/assets/js/waypoint.js', __FILE__ ), [ 'jquery' ], null, true );
+    wp_register_script( 'swiper-bundle', plugins_url( '/assets/js/swiper-bundle.min.js', __FILE__ ), [ 'jquery' ], null, true );
+    wp_register_script( 'ScrollSmoother', plugins_url( '/assets/js/ScrollSmoother.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
+    wp_register_script( 'gsap', plugins_url( '/assets/js/gsap.min.js', __FILE__ ), [], '3.12.2', true );
+    wp_register_script( 'SplitText', plugins_url( '/assets/js/SplitText.min.js', __FILE__ ), [ 'jquery', 'gsap' ], null, true );
+    wp_register_script( 'ScrollTrigger', plugins_url( '/assets/js/ScrollTrigger.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
+    
+    wp_register_script( 'ScrollToPlugin', plugins_url( '/assets/js/ScrollToPlugin.min.js', __FILE__ ), [ 'gsap' ], '3.12.2', true );
+    wp_register_script( 'ScrollSmooth', plugins_url( '/assets/js/ScrollSmooth.js', __FILE__ ), [ 'gsap' ], null, true );
+
+    wp_register_script( 'gsapAnimation', plugins_url( '/assets/js/gsapAnimation.js', __FILE__ ), [ 'jquery', 'gsap', 'ScrollTrigger' ], null, true );
+    wp_register_script( 'change-text', plugins_url( '/assets/js/animation-change-text.js', __FILE__ ), [ 'jquery', 'gsap' ], null, true );
+
     wp_register_script( 'tf-carousel', plugins_url( '/assets/js/carousel.js', __FILE__ ), [ 'jquery' ], null, true );
-     wp_register_script( 'swiper-bundle', plugins_url( '/assets/js/swiper-bundle.min.js', __FILE__ ), [ 'jquery' ], null, true );
 
     /**
      * 4. WIDGET SPECIFIC & MAIN SCRIPTS

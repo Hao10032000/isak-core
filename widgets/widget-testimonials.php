@@ -21,8 +21,13 @@ class TFTestimonials_Widget extends Widget_Base {
     public function get_categories() {
         return ['themesflat_addons'];
     }
-     public function get_script_depends() {
-        return ['tf-carousel'];
+
+    public function get_style_depends() { 
+        return [ 'swiper-bundle' ];
+    }
+
+    public function get_script_depends() {
+        return ['swiper-bundle','tf-carousel'];
     }
 
    protected function register_controls() {

@@ -1,3 +1,5 @@
+(function ($) {
+    "use strict";
 $(window).on("load", function () {
     $(".tf-swiper").each(function (index, element) {
         var $this = $(element);
@@ -206,3 +208,5 @@ if ($(".swiper-award").length > 0) {
         },
     });
 }
+
+})(jQuery);

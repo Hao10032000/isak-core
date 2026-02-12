@@ -452,8 +452,11 @@ gsap.registerPlugin(ScrollTrigger);
     ---------------------------------------------------------- */
     var drawSvg = () => {
         if ($(".scribble-wrap").length > 0) {
+
             const path = document.getElementById("scribblePath");
             const svg = document.querySelector(".scribble");
+
+            if (!path || !svg) return; // 🔥 tránh lỗi null
 
             const len = path.getTotalLength();
             path.style.setProperty("--len", len);
@@ -471,6 +474,7 @@ gsap.registerPlugin(ScrollTrigger);
             io.observe(svg);
         }
     };
+
     /*========== End - Scroll Orther Animation ==========*/
 
     /*== Start - Preload ==*/
