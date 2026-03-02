@@ -497,42 +497,45 @@ class TFWork_Widget extends Widget_Base {
                             <div class="content-top">
                                 <?php
                                 if ( $image_id ) : ?>
-                                    <div class="w-logo">
-                                        <?php  echo wp_get_attachment_image( $image_id, 'full' ); ?>
-                                    </div>
+                                <div class="w-logo">
+                                    <?php  echo wp_get_attachment_image( $image_id, 'full' ); ?>
+                                </div>
                                 <?php endif; ?>
                                 <h4 class="w-title letter-space--2 text-white-72">
-                                <?php the_title(); ?>
+                                    <?php the_title(); ?>
                                 </h4>
-                            <?php if ( $settings['show_desc'] === 'yes' ) : ?>
-                                    <p class="w-desc text-white-56 text-body-3"><?php echo esc_html( $desc ); ?></p>
+                                <?php if ( $settings['show_desc'] === 'yes' ) : ?>
+                                <p class="w-desc text-white-56 text-body-3"><?php echo esc_html( $desc ); ?></p>
                                 <?php endif; ?>
                                 <?php if ( $settings['show_year'] === 'yes' || $settings['show_role'] === 'yes') : ?>
-                                    <div class="w-highlight">
-                                        <?php if ( $settings['show_year'] === 'yes' ) : ?>
-                                            <div class="box-high">
-                                                <p class="text-body-3 text-white-56"><?php echo esc_html( $settings['label_year'] ); ?></p>
-                                                <p class="text-body-1 text-white-72"><?php echo esc_html($year); ?></p>
-                                            </div>
-                                        <?php endif; ?>
-                                        <?php if ( $settings['show_role'] === 'yes' ) : ?>
-                                            <div class="box-high">
-                                                <p class="text-body-3 text-white-56"><?php echo esc_html( $settings['label_role'] ); ?></p>
-                                                <p class="text-body-1 text-white-72"><?php echo esc_html($role); ?></p>
-                                            </div>
-                                        <?php endif; ?>
+                                <div class="w-highlight">
+                                    <?php if ( $settings['show_year'] === 'yes' ) : ?>
+                                    <div class="box-high">
+                                        <p class="text-body-3 text-white-56">
+                                            <?php echo esc_html( $settings['label_year'] ); ?></p>
+                                        <p class="text-body-1 text-white-72"><?php echo esc_html($year); ?></p>
                                     </div>
+                                    <?php endif; ?>
+                                    <?php if ( $settings['show_role'] === 'yes' ) : ?>
+                                    <div class="box-high">
+                                        <p class="text-body-3 text-white-56">
+                                            <?php echo esc_html( $settings['label_role'] ); ?></p>
+                                        <p class="text-body-1 text-white-72"><?php echo esc_html($role); ?></p>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
                                 <?php endif; ?>
-                                <?php if ( $settings['show_tags'] === 'yes' && $tags ) : 
-                                    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-                                    ?>
-                                    
-                                    <div class="w-tag-list">
-                                        <?php foreach ( $tags as $tag ) : ?>
-                                            <div class="tag"><span><?php echo esc_html($tag->name); ?></span></div>
-                                        <?php endforeach; ?>
+                                <?php 
+if ( $settings['show_tags'] === 'yes' && ! empty( $tags ) && ! is_wp_error( $tags ) ) : 
+?>
+                                <div class="w-tag-list">
+                                    <?php foreach ( $tags as $tag ) : ?>
+                                    <div class="tag">
+                                        <span><?php echo esc_html($tag->name); ?></span>
                                     </div>
-                                <?php } endif; ?>
+                                    <?php endforeach; ?>
+                                </div>
+                                <?php endif; ?>
                             </div>
                             <div class="content-bottom">
                                 <div class="br-line"></div>
@@ -542,7 +545,7 @@ class TFWork_Widget extends Widget_Base {
                                             <i class="icon icon-isak-arrow-right-top"></i>
                                         </span>
                                         <span class="text text-body-3 letter-space--05 fw-medium">
-                                          <?php echo esc_html($settings['button_text']); ?>
+                                            <?php echo esc_html($settings['button_text']); ?>
                                         </span>
                                         <span class="ic-wrap">
                                             <i class="icon icon-isak-arrow-right-top"></i>

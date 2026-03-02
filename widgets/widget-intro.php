@@ -131,16 +131,29 @@ class TFIntro_Widget extends \Elementor\Widget_Base {
             'default' => 'CREATIVE • DIGITAL • DESIGN • ',
         ]);
 
-        $this->add_control('center_icon', [
-            'label' => esc_html__('Center Icon (SVG or Image)', 'themesflat-core'),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-        ]);
+        // --- Center Icon Group ---
+$this->add_control('center_icon', [
+    'label' => esc_html__('Center Icon (Light)', 'themesflat-core'),
+    'type' => \Elementor\Controls_Manager::MEDIA,
+]);
 
-        $this->add_control('scribble_img', [
-            'label' => esc_html__('Scribble Asset (SVG/PNG)', 'themesflat-core'),
-            'type' => \Elementor\Controls_Manager::MEDIA,
-            'condition' => ['layout_style' => 'type-1']
-        ]);
+$this->add_control('center_icon_dark', [
+    'label' => esc_html__('Center Icon (Dark)', 'themesflat-core'),
+    'type' => \Elementor\Controls_Manager::MEDIA,
+]);
+
+// --- Scribble Group ---
+$this->add_control('scribble_img', [
+    'label' => esc_html__('Scribble Asset (Light)', 'themesflat-core'),
+    'type' => \Elementor\Controls_Manager::MEDIA,
+    'condition' => ['layout_style' => 'type-1']
+]);
+
+$this->add_control('scribble_img_dark', [
+    'label' => esc_html__('Scribble Asset (Dark)', 'themesflat-core'),
+    'type' => \Elementor\Controls_Manager::MEDIA,
+    'condition' => ['layout_style' => 'type-1']
+]);
 
         $this->add_control('main_3d_image', [
             'label' => esc_html__('Main 3D Image', 'themesflat-core'),
@@ -305,35 +318,35 @@ class TFIntro_Widget extends \Elementor\Widget_Base {
     protected function render_author($s) {
         if (empty($s['author_image']['url'])) return;
         ?>
-        <div class="intro-author effectFade fadeUp no-div">
-            <div class="author-image">
-                <img src="<?php echo esc_url($s['author_image']['url']); ?>" alt="author">
-            </div>
-            <div class="author-info letter-space--05">
-                <p class="info_name text-black"><?php echo esc_html($s['author_name']); ?></p>
-                <p class="info_duty text-black-50 text-body-3"><?php echo esc_html($s['author_duty']); ?></p>
-            </div>
-        </div>
-        <?php
+<div class="intro-author effectFade fadeUp no-div">
+    <div class="author-image">
+        <img src="<?php echo esc_url($s['author_image']['url']); ?>" alt="author">
+    </div>
+    <div class="author-info letter-space--05">
+        <p class="info_name text-black"><?php echo esc_html($s['author_name']); ?></p>
+        <p class="info_duty text-black-50 text-body-3"><?php echo esc_html($s['author_duty']); ?></p>
+    </div>
+</div>
+<?php
     }
 
     protected function render_counter($s, $extra_class = '') {
         ?>
-        <div class="box-counter <?php echo esc_attr($extra_class); ?>">
-            <div class="wg-counter">
-                <p class="counter h1 d-flex font-2 letter-space--2">
-                    <span class="number" data-speed="1000" data-to="<?php echo esc_attr($s['exp_number']); ?>">0</span>+
-                </p>
-                <p class="text text-black-56 text-body-3"><?php echo esc_html($s['exp_text']); ?></p>
-            </div>
-            <div class="wg-counter">
-                <p class="counter h1 d-flex font-2 letter-space--2">
-                    <span class="number" data-speed="1000" data-to="<?php echo esc_attr($s['award_number']); ?>">0</span>x
-                </p>
-                <p class="text text-black-56 text-body-3"><?php echo esc_html($s['award_text']); ?></p>
-            </div>
-        </div>
-        <?php
+<div class="box-counter <?php echo esc_attr($extra_class); ?>">
+    <div class="wg-counter">
+        <p class="counter h1 d-flex font-2 letter-space--2 text-black-72">
+            <span class="number" data-speed="1000" data-to="<?php echo esc_attr($s['exp_number']); ?>">0</span>+
+        </p>
+        <p class="text text-black-56 text-body-3"><?php echo esc_html($s['exp_text']); ?></p>
+    </div>
+    <div class="wg-counter">
+        <p class="counter h1 d-flex font-2 letter-space--2 text-black-72">
+            <span class="number" data-speed="1000" data-to="<?php echo esc_attr($s['award_number']); ?>">0</span>x
+        </p>
+        <p class="text text-black-56 text-body-3"><?php echo esc_html($s['award_text']); ?></p>
+    </div>
+</div>
+<?php
     }
 
     protected function render() {
@@ -342,99 +355,122 @@ class TFIntro_Widget extends \Elementor\Widget_Base {
         $processed_text = $this->get_processed_text($s);
         ?>
 
-        <div class="tf-intro-widget">
-            <?php if ( 'type-1' === $style ) : ?>
-            <div class="section-intro flat-spacing">
-                <?php $this->render_author($s); ?>
+<div class="tf-intro-widget">
+    <?php if ( 'type-1' === $style ) : ?>
+    <div class="section-intro flat-spacing">
+        <?php $this->render_author($s); ?>
 
-                <h1 class="intro-title letter-space--2 split-text effect-blur-fade">
-                    <?php echo $processed_text; ?>
-                </h1>
+        <h1 class="intro-title letter-space--2 split-text effect-blur-fade">
+            <?php echo $processed_text; ?>
+        </h1>
 
-                <div class="intro-item">
-                    <div class="scribble-wrap">
-                        <?php if (!empty($s['scribble_img']['url'])) : ?>
-                        <img src="<?php echo esc_url($s['scribble_img']['url']); ?>" alt="scribble">
-                        <?php else : ?>
-                        <svg class="scribble" viewBox="0 0 772 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 104.315C34.6667 116.269 92.8 137.913 144 128.853C208 117.528 317 33.5324 356 27.8698"
-                                stroke="#00DE51" stroke-width="40" stroke-linecap="round" />
-                        </svg>
-                        <?php endif; ?>
-                    </div>
+        <div class="intro-item">
+            <div class="scribble-wrap">
+    <?php 
+    if (!empty($s['scribble_img']['url'])) : 
+        $scribble_light = $s['scribble_img']['url'];
+        $scribble_dark  = !empty($s['scribble_img_dark']['url']) ? $s['scribble_img_dark']['url'] : $scribble_light;
+    ?>
+        <img class="image-switch" 
+             src="<?php echo esc_url($scribble_light); ?>" 
+             data-dark="<?php echo esc_url($scribble_dark); ?>" 
+             alt="scribble">
+    <?php else : ?>
+        <<svg class="scribble" viewBox="0 0 772 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 104.315C34.6667 116.269 92.8 137.913 144 128.853C208 117.528 317 33.5324 356 27.8698"
+                        stroke="#00DE51" stroke-width="40" stroke-linecap="round" />
+                </svg>
+    <?php endif; ?>
+</div>
 
-                    <div class="wg-curve-text">
-                        <div class="icon">
-                            <?php if (!empty($s['center_icon']['url'])) : ?>
-                            <img src="<?php echo esc_url($s['center_icon']['url']); ?>" alt="icon">
-                            <?php endif; ?>
-                        </div>
-                        <div class="text-rotate">
-                            <div class="circle">
-                                <div class="text" data-text="<?php echo esc_attr($s['curve_text']); ?>"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <?php $this->render_counter($s, 'effectFade fadeUp no-div'); ?>
-            </div>
-
-            <?php elseif ( 'type-2' === $style ) : ?>
-            <div class="section-intro type-2 flat-spacing">
-                <h1 class="s-title text-black-72 letter-space--2 split-text effect-blur-fade">
-                    <?php echo $processed_text; ?>
-                </h1>
-
-                <?php $this->render_counter($s); ?>
-
-                <?php if (!empty($s['gallery_list'])) : ?>
-                <div class="flip-image-list gsap-anime-2">
-                    <?php foreach ($s['gallery_list'] as $item) : 
-                        if (empty($item['image']['url'])) continue; ?>
-                    <div class="flip-image">
-                        <img loading="lazy" width="300" height="300" src="<?php echo esc_url($item['image']['url']); ?>"
-                            alt="Gallery Image">
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-                <?php endif; ?>
-            </div>
-
-            <?php elseif ( 'type-3' === $style ) : ?>
-            <div class="section-intro type-3 flat-spacing">
-                <?php $this->render_author($s); ?>
-
-                <h1 class="intro-title letter-space--2 split-text effect-blur-fade">
-                    <?php echo $processed_text; ?>
-                </h1>
-
-                <div class="counter-image-item">
-                    <?php $this->render_counter($s); ?>
-                    <div class="image-item">
-                        <div class="image">
-                            <?php if (!empty($s['main_3d_image']['url'])) : ?>
-                            <img src="<?php echo esc_url($s['main_3d_image']['url']); ?>" alt="3d-asset">
-                            <?php endif; ?>
-                        </div>
-                        <div class="wg-curve-text style-2">
-                            <div class="icon">
-                                <?php if (!empty($s['center_icon']['url'])) : ?>
-                                <img src="<?php echo esc_url($s['center_icon']['url']); ?>" alt="icon">
-                                <?php endif; ?>
-                            </div>
-                            <div class="text-rotate">
-                                <div class="circle">
-                                    <div class="text" id="circularText-<?php echo esc_attr($this->get_id()); ?>" data-text="<?php echo esc_attr($s['curve_text']); ?>">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="wg-curve-text">
+                <div class="icon">
+    <?php 
+    if (!empty($s['center_icon']['url'])) : 
+        $icon_light = $s['center_icon']['url'];
+        $icon_dark  = !empty($s['center_icon_dark']['url']) ? $s['center_icon_dark']['url'] : $icon_light;
+    ?>
+        <img class="image-switch" 
+             src="<?php echo esc_url($icon_light); ?>" 
+             data-dark="<?php echo esc_url($icon_dark); ?>" 
+             alt="icon">
+    <?php endif; ?>
+</div>
+                <div class="text-rotate">
+                    <div class="circle">
+                        <div class="text" data-text="<?php echo esc_attr($s['curve_text']); ?>"></div>
                     </div>
                 </div>
             </div>
-            <?php endif; ?>
         </div>
-        <?php
+
+        <?php $this->render_counter($s, 'effectFade fadeUp no-div'); ?>
+    </div>
+
+    <?php elseif ( 'type-2' === $style ) : ?>
+    <div class="section-intro type-2 flat-spacing">
+        <h1 class="s-title text-black-72 letter-space--2 split-text effect-blur-fade">
+            <?php echo $processed_text; ?>
+        </h1>
+
+        <?php $this->render_counter($s); ?>
+
+        <?php if (!empty($s['gallery_list'])) : ?>
+        <div class="flip-image-list gsap-anime-2">
+            <?php foreach ($s['gallery_list'] as $item) : 
+                        if (empty($item['image']['url'])) continue; ?>
+            <div class="flip-image">
+                <img loading="lazy" width="300" height="300" src="<?php echo esc_url($item['image']['url']); ?>"
+                    alt="Gallery Image">
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </div>
+
+    <?php elseif ( 'type-3' === $style ) : ?>
+    <div class="section-intro type-3 flat-spacing">
+        <?php $this->render_author($s); ?>
+
+        <h1 class="intro-title letter-space--2 split-text effect-blur-fade">
+            <?php echo $processed_text; ?>
+        </h1>
+
+        <div class="counter-image-item">
+            <?php $this->render_counter($s); ?>
+            <div class="image-item">
+                <div class="image">
+                    <?php if (!empty($s['main_3d_image']['url'])) : ?>
+                    <img src="<?php echo esc_url($s['main_3d_image']['url']); ?>" alt="3d-asset">
+                    <?php endif; ?>
+                </div>
+                <div class="wg-curve-text style-2">
+                    <div class="icon">
+    <?php 
+    if (!empty($s['center_icon']['url'])) : 
+        $icon_light = $s['center_icon']['url'];
+        $icon_dark  = !empty($s['center_icon_dark']['url']) ? $s['center_icon_dark']['url'] : $icon_light;
+    ?>
+        <img class="image-switch" 
+             src="<?php echo esc_url($icon_light); ?>" 
+             data-dark="<?php echo esc_url($icon_dark); ?>" 
+             alt="icon">
+    <?php endif; ?>
+</div>
+                    <div class="text-rotate">
+                        <div class="circle">
+                            <div class="text" id="circularText-<?php echo esc_attr($this->get_id()); ?>"
+                                data-text="<?php echo esc_attr($s['curve_text']); ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
+<?php
     }
 }

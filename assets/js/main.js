@@ -288,29 +288,34 @@
 
     /* Scroll Link
     ---------------------------------------------------------- */
-    var scrollLink = function () {
-        let sectionIds = $("a.scroll-link");
-        $(document).on("scroll", function () {
-            sectionIds.each(function () {
-                let container = $(this).attr("href");
+   var scrollLink = function () {
+    let sectionLinks = $("a.scroll-link");
 
-                if (!container || container === "#") return;
+    $(window).on("scroll", function () {
+        let scrollPosition = $(window).scrollTop();
+        let activeId = "";
 
-                if (!$(container).length) return;
+        sectionLinks.each(function () {
+            let href = $(this).attr("href");
 
-                let containerOffset = $(container).offset().top;
-                let containerHeight = $(container).outerHeight();
-                let containerBottom = containerOffset + containerHeight;
-                let scrollPosition = $(document).scrollTop();
-
-                if (scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20) {
-                    $(this).addClass("active");
-                } else {
-                    $(this).removeClass("active");
+            if (href && href.startsWith("#") && href.length > 1) {
+                let $target = $(href);
+                
+                if ($target.length) {
+                    let top = $target.offset().top - 100;
+                    if (scrollPosition >= top) {
+                        activeId = href;
+                    }
                 }
-            });
+            }
         });
-    };
+
+        sectionLinks.removeClass("active");
+        if (activeId) {
+            $(`a.scroll-link[href="${activeId}"]`).addClass("active");
+        }
+    });
+};
 
     /* Contact Form
     ---------------------------------------------------------- */

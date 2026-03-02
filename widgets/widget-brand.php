@@ -105,7 +105,7 @@ class TFBrand_Widget extends \Elementor\Widget_Base {
         $settings = $this->get_settings_for_display();
         // Thêm class .split-text và một hiệu ứng (ví dụ effect-fade) để JS bắt được
         ?>
-        <p class="intro-client split-text effect-fade letter-space--05 text-body-3">
+        <p class="intro-client letter-space--05 text-body-3">
             <?php if ( ! empty( $settings['custom_icon']['value'] ) ) : ?>
                 <span class="icon-wrap">
                     <?php \Elementor\Icons_Manager::render_icon( $settings['custom_icon'], [ 'aria-hidden' => 'true' ] ); ?>
