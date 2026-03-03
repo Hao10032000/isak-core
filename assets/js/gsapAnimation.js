@@ -456,7 +456,7 @@ gsap.registerPlugin(ScrollTrigger);
             const path = document.getElementById("scribblePath");
             const svg = document.querySelector(".scribble");
 
-            if (!path || !svg) return; // 🔥 tránh lỗi null
+            if (!path || !svg) return; 
 
             const len = path.getTotalLength();
             path.style.setProperty("--len", len);
